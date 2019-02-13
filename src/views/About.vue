@@ -1,10 +1,13 @@
 <template>
-  <div class="about section">
-    <div class="container">
-      <h1>This is an about page</h1>
-      <div class="columns">
-        <div class="column" v-for="user in users" :key="user.login">
-          <User/>
+  <div class="about">
+    <Hero title="Welcome to Our Team" subtitle="A Small Ragtag Bunch" color="is-warning"/>
+
+    <div class="section">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-2" v-for="user in users" :key="user.login">
+            <User v-bind:user="user"/>
+          </div>
         </div>
       </div>
     </div>
@@ -13,10 +16,11 @@
 
 <script>
 import User from "@/components/User";
+import Hero from "@/components/Hero";
 
 export default {
   // register components
-  components: { User },
+  components: { User, Hero },
 
   // data for this component goes in here
   data() {

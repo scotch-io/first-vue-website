@@ -1,13 +1,25 @@
 <template>
   <div class="card">
-    <div class="card-image">User Image goes here</div>
+    <div class="card-image has-text-centered">
+      <img :src="user.avatar_url">
+    </div>
     <div class="card-content">
-      <h2>Username</h2>
-      <p>GitHub Followers: 54000</p>
+      <h2>
+        <a :href="user.html_url">{{ user.login }}</a>
+      </h2>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["user"]
+};
 </script>
+
+<style lang="scss" scoped>
+img {
+  max-height: 150px;
+  margin: 0 auto;
+}
+</style>
